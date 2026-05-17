@@ -1,11 +1,13 @@
 
-
-
-# 🛠️ `ctfscan` –BLACKFLAG
+# 🛠️ `ctfscan` – BLACKFLAG
 
 > Instant flag finder & decoder for CTFs.  
 > Built by [@Anuragmahipal](https://github.com/Anuragmahipal)  
 > 🦾 No GUI. No bloat. Just raw shell power.
+
+[![PyPI version](https://badge.fury.io/py/ctfscan.svg)](https://pypi.org/project/ctfscan/)
+[![Python 3.6+](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
@@ -13,7 +15,7 @@
 
 `ctfscan` is a **blazing-fast terminal utility** for CTF players, reverse engineers, and anyone trying to slice through encoded clues and flag-filled binaries.
 
-📦 It fits in your terminal.  
+📦 Installs in seconds via pip.  
 ⚡ Runs in a blink.  
 🕵️‍♂️ Built for real-world use.
 
@@ -26,25 +28,41 @@
 | `-ff`         | Find `flag{}` / `FLAG{}` / `CTF{}` patterns |
 | `-d64`        | Decode base64 data from file               |
 | `-dhex`       | Decode hex strings (like shellcode)        |
+| `-scan`       | Advanced analysis (exiftool, binwalk, strings) |
 | Default mode  | Auto-search for flag-like patterns         |
 
 ---
 
 ## 🚀 Quick Start
 
+### Installation
+
+**Via pip (recommended):**
 ```bash
-# 1. Clone it
+pip install ctfscan
+```
+
+**From source:**
+```bash
 git clone https://github.com/Anuragmahipal/ctfscan.git
 cd ctfscan
+pip install -e .
+```
 
-# 2. Make it executable
-chmod +x ctfscan
+### Usage
 
-# 3. Move to system PATH
-sudo cp ctfscan /usr/local/bin/
-
-# 4. Use it from anywhere
+```bash
+# Find all flags recursively
 ctfscan -ff secret.txt
+
+# Decode base64
+ctfscan -d64 encoded.txt
+
+# Decode hex
+ctfscan -dhex shellcode.hex
+
+# Advanced analysis
+ctfscan -scan binary_file
 ```
 
 ---
@@ -59,22 +77,26 @@ ctfscan -d64 <file>
 # 📜 Decode base64 content
 
 ctfscan -dhex <file>
-# 🧬 Decode hex data (pipe-safe)
+# 🧬 Decode hex data
 
-ctfscan <file>
-# 🎯 Try to auto-grep for FLAG{}
+ctfscan -scan <file>
+# 🔍 Run exiftool, binwalk, and strings analysis
+
+ctfscan -h
+# 📖 Show help
 ```
 
 ---
 
 ## 💻 CTF Workflow Integration
 
-Pair `ctfscan` with `nvim-blackflag` or other setups:
+Pair `ctfscan` with your favorite tools:
 
-- Grep for flags while editing
+- Grep for flags while solving CTFs
 - Decode strings on the fly
 - Hex + base64 decoding directly from terminal
-- Use in `fzf`, `telescope`, `toggleterm`, etc.
+- Use in bash scripts and automation
+- Integrate with `fzf` and other terminal tools
 
 ---
 
@@ -89,15 +111,76 @@ ctfscan -d64 encoded.txt
 
 # Pipe into another tool:
 ctfscan -ff target.bin | tee flags.txt
+
+# Advanced analysis on binary:
+ctfscan -scan challenges/binary_challenge
 ```
 
 ---
 
 ## ⚙️ Requirements
 
-- Any POSIX-compatible shell (bash preferred)
-- `grep`, `base64`, `xxd` installed
-- Works on Linux, macOS, WSL
+- Python 3.6 or higher
+- Optional: `exiftool`, `binwalk`, `strings` for advanced scanning
+
+---
+
+## 📦 Installation Methods
+
+### Method 1: PyPI (Recommended)
+```bash
+pip install ctfscan
+ctfscan -h
+```
+
+### Method 2: From Source
+```bash
+git clone https://github.com/Anuragmahipal/ctfscan.git
+cd ctfscan
+pip install -e .
+ctfscan -h
+```
+
+### Method 3: Development Install
+```bash
+git clone https://github.com/Anuragmahipal/ctfscan.git
+cd ctfscan
+pip install -e ".[dev]"
+```
+
+---
+
+## 🐛 Troubleshooting
+
+**Command not found after installation?**
+- Ensure the pip installation location is in your PATH
+- Try: `python -m ctfscan.cli -ff file.txt`
+
+**Optional tools not working?**
+- Install: `exiftool`, `binwalk`, `strings`
+- On Ubuntu/Debian: `sudo apt-get install exiftool binwalk`
+- On macOS: `brew install exiftool binwalk`
+
+---
+
+## 📝 License
+
+MIT License - See [LICENSE](LICENSE) file for details
+
+---
+
+## 🤝 Contributing
+
+Found a bug? Have a feature request?  
+Open an issue on [GitHub](https://github.com/Anuragmahipal/ctfscan/issues)
+
+---
+
+## 👨‍💻 Author
+
+**Anuragmahipal**  
+GitHub: [@Anuragmahipal](https://github.com/Anuragmahipal)
+
 
 ---
 

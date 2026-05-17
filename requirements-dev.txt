@@ -1,0 +1,11 @@
+# Python dependencies for ctfscan development
+
+# Core (included with standard Python)
+# (no external runtime dependencies required)
+
+# Development dependencies
+pytest>=6.0
+pytest-cov>=2.10
+black>=21.0
+flake8>=3.9
+mypy>=0.900

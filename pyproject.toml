@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anurag-ctfscan"
+version = "1.0.1"
+description = "Blazing-fast terminal utility for CTF players to find and decode flags"
+readme = "README.md"
+requires-python = ">=3.6"
+license = {text = "MIT"}
+authors = [
+    {name = "Anuragmahipal", email = "anuragmahipal2006@gmail.com"},
+]
+keywords = ["ctf", "flag", "decoder", "security", "hacking", "capture-the-flag"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://github.com/Anuragmahipal/ctfscan"
+Repository = "https://github.com/Anuragmahipal/ctfscan.git"
+"Bug Tracker" = "https://github.com/Anuragmahipal/ctfscan/issues"
+Documentation = "https://github.com/Anuragmahipal/ctfscan/blob/main/README.md"
+
+[project.scripts]
+ctfscan = "ctfscan.cli:main"
