@@ -39,7 +39,7 @@
 
 **Via pip (recommended):**
 ```bash
-pip install ctfscan
+pip install anurag-ctfscan==1.0.1
 ```
 
 **From source:**
@@ -49,6 +49,10 @@ cd ctfscan
 pip install -e .
 ```
 
+**From PYPI:**
+```bash
+https://pypi.org/project/anurag-ctfscan/1.0.1/
+```
 ### Usage
 
 ```bash
